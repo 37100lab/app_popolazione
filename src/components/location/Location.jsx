@@ -11,8 +11,8 @@ export const Location = ({ location, showLocationModal }) => {
 
   return (
     <div>
-      <h3>{stringManager.titleCase(location.properties.circoscriz)}</h3> 
-      <h3>{stringManager.titleCase(location.properties.residenti)}</h3> 
+      <h3>Zona {stringManager.titleCase(location.properties.circoscriz)}</h3> 
+      <h3>{stringManager.titleCase(location.properties.residenti)} abitanti</h3> 
      
       
       <IonButton expand="block" fill="clear" color="transparent" onClick={() => showLocationModal({locationClicked:location})}>
