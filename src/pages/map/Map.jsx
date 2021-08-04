@@ -38,6 +38,8 @@ import sponsor from '../../assets/img/sponsor.jpg'
 import { locateSharp } from 'ionicons/icons'
 
 const url='http://3.142.202.105:7484'
+//const url='http://192.168.20.63:7484'
+
 
 export class Map extends Component {
   

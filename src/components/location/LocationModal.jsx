@@ -32,7 +32,7 @@ export const LocationModal = ({ loc }) => {
   if(
      (
       loc.properties &&
-      ( !('circoscriz' in loc.properties) || !('residenti' in loc.properties))
+      ( !('circoscriz' in loc.properties) || !('residenti' in loc.properties)|| !('numscuole' in loc.properties)|| !('numfarmacie' in loc.properties))
      )
      || !loc.properties
     )
@@ -62,6 +62,14 @@ export const LocationModal = ({ loc }) => {
       <IonItem>
         <IonNote slot="start" color="primary">Residenti</IonNote>
         <IonLabel>{stringManager.titleCase(loc.properties.residenti)}</IonLabel>
+      </IonItem>
+      <IonItem>
+        <IonNote slot="start" color="primary">N° Scuole</IonNote>
+        <IonLabel>{stringManager.titleCase(loc.properties.numscuole)}</IonLabel>
+      </IonItem>
+      <IonItem>
+        <IonNote slot="start" color="primary">N° Farmacie</IonNote>
+        <IonLabel>{stringManager.titleCase(loc.properties.numfarmacie)}</IonLabel>
       </IonItem>
     </IonList>
   </IonContent>
