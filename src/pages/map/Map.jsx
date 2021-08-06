@@ -25,7 +25,6 @@ import {
   Marker,
   Popup,
   MapConsumer,
-  //LayersControl,
 } from 'react-leaflet'
 
 import {dismissLocationModal} from '../../redux/actions'
@@ -35,15 +34,11 @@ import LocationMarkers from '../../components/location/LocationMarkers'
 import LocationModal from '../../components/location/LocationModal'
 
 import { Geolocation } from '@capacitor/geolocation'
-//import circoscrizioni from '../../data/circoscrizioni.json'
-//import quartieri from '../../data/quartieri.json'
 
 import sponsor from '../../assets/img/sponsor.jpg'
 import { locateSharp } from 'ionicons/icons'
 
 const url='http://3.142.202.105:7484'
-//const url='http://192.168.20.63:7484'
-
 
 export class Map extends Component {
   
@@ -69,23 +64,6 @@ export class Map extends Component {
       this.setState({ mapContainer: true })
     }, 500)
   }
-
-  /*GetCircoscrizioni(){
-    fetch(url+'/get/popolazioneResidentePerCircoscrizione', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-      this.setState({circoscrizioni : data})
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-  }*/
 
   GetPopolazionePerCircoscrizione(){
     fetch(url+'/get/popolazioneResidentePerCircoscrizione', {
@@ -114,19 +92,6 @@ export class Map extends Component {
   componentDidCatch() {
     this.setState({gpsError:true})
   }
-  //ON EACH METHODS
-  /*OnEachFarmacia = (farmacia, layer) =>{
-    layer.bindPopup(farmacia.properties.denominazi)
-  }
-
-  OnEachQuartiere = (quartiere, layer) =>{
-    layer.bindPopup(stringManager.titleCase(quartiere.properties.quartiere))
-  }
-
-  OnEachCircoscrizione = (paese, layer) =>{
-    layer.bindPopup(stringManager.titleCase(paese.properties.circoscriz))
-  }*/
-
   render() {
     const { zoom, locationClicked, showModal } = this.props.map
     const centerPosition = () => {
@@ -145,13 +110,12 @@ export class Map extends Component {
             </IonToolbar>
             </IonHeader>
             <IonContent>
-
             <IonList>
             <IonItem>
-            <IonLabel>Errore nell'avvio dell'applicazione</IonLabel>
+            <IonLabel className="ion-text-wrap">Errore nell'avvio dell'applicazione</IonLabel>
             </IonItem>
             <IonItem>
-            <IonLabel>Assicurarsi che il Geolocalizzazione 
+            <IonLabel className="ion-text-wrap">Assicurarsi che il Geolocalizzazione 
             e la connessione internet siano attive</IonLabel>
             </IonItem>
             </IonList>
