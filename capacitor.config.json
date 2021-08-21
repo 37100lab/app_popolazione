@@ -1,6 +1,6 @@
 {
-  "appId": "com.geoapp.front",
-  "appName": "geoapp-front",
+  "appId": "com.geo.popolazione",
+  "appName": "geo-popolazione",
   "webDir": "build",
   "bundledWebRuntime": false
 }

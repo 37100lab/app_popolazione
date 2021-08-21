@@ -9,10 +9,7 @@ import {
   IonTabs,
 } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
-import {
-  mapOutline,
-  searchOutline,
-} from 'ionicons/icons'
+import { mapOutline, searchOutline } from 'ionicons/icons'
 
 import Map from './pages/map/Map'
 import AboutUs from './pages/aboutUs/AboutUs'
