@@ -34,6 +34,7 @@ import LocationMarkers from '../../components/location/LocationMarkers'
 import LocationModal from '../../components/location/LocationModal'
 
 import { Geolocation } from '@capacitor/geolocation'
+import L from 'leaflet'
 
 import sponsor from '../../assets/img/sponsor.jpg'
 import { locateSharp } from 'ionicons/icons'
@@ -63,8 +64,12 @@ export class Map extends Component {
     }, 500)
   }
 
+  componentDidCatch() {
+    this.setState({ gpsError: true })
+  }
+
   GetPopolazionePerCircoscrizione() {
-    fetch(url + '/get/popolazioneResidentePerCircoscrizione', {
+    fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -92,9 +97,6 @@ export class Map extends Component {
       })
   }
 
-  componentDidCatch() {
-    this.setState({ gpsError: true })
-  }
   render() {
     const { zoom, locationClicked, showModal } = this.props.map
     const centerPosition = () => {
@@ -107,7 +109,7 @@ export class Map extends Component {
         <IonPage>
           <IonHeader>
             <IonToolbar>
-              <IonTitle>Farmacie a Verona</IonTitle>
+              <IonTitle>Popolazione residente a Verona</IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent>
@@ -132,7 +134,7 @@ export class Map extends Component {
         <IonPage>
           <IonHeader>
             <IonToolbar>
-              <IonTitle>Residenti a Verona</IonTitle>
+              <IonTitle>Popolazione residente a Verona</IonTitle>
             </IonToolbar>
           </IonHeader>
 
@@ -158,6 +160,16 @@ export class Map extends Component {
                 <MapConsumer>
                   {map => {
                     map.setView(this.center)
+                    var layer = L.tileLayer.wms(
+                      'https://37100lab.it/geoserver/geoapp/wms?service=WMS&version=1.1.0&request=GetMap&layers=geoapp%3Apopolazione_residente_somma&bbox=10.8771105631536%2C45.3494991632802%2C11.123927429176%2C45.5417372249019&width=768&height=598&srs=EPSG%3A4326&styles=&format=application/openlayers',
+                      {
+                        layers: 'geoapp:popolazione_residente',
+                        format: 'image/png',
+                        transparent: true,
+                        attribution: 'mylayerPopolazione',
+                      }
+                    )
+                    layer.addTo(map)
                     return null
                   }}
                 </MapConsumer>

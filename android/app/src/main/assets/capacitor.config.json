@@ -1,0 +1,6 @@
+{
+	"appId": "com.geo.popolazione",
+	"appName": "geo-popolazione",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
