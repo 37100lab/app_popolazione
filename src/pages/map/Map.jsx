@@ -161,7 +161,7 @@ export class Map extends Component {
                   {map => {
                     map.setView(this.center)
                     var layer = L.tileLayer.wms(
-                      'https://37100lab.it/geoserver/geoapp/wms?service=WMS&version=1.1.0&request=GetMap&layers=geoapp%3Apopolazione_residente_somma&bbox=10.8771105631536%2C45.3494991632802%2C11.123927429176%2C45.5417372249019&width=768&height=598&srs=EPSG%3A4326&styles=&format=application/openlayers',
+                      'https://37100lab.it/geoserver/geoapp/wms',
                       {
                         layers: 'geoapp:popolazione_residente',
                         format: 'image/png',
