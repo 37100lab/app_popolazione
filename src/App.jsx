@@ -13,7 +13,6 @@ import { mapOutline, searchOutline } from 'ionicons/icons'
 
 import Map from './pages/map/Map'
 import AboutUs from './pages/aboutUs/AboutUs'
-import { connect } from 'react-redux'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css'
@@ -62,6 +61,4 @@ const App = () => {
   )
 }
 
-const mapStateToProps = state => ({})
-
-export default connect(mapStateToProps)(App)
+export default App
